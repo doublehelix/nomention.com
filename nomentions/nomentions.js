@@ -5,8 +5,8 @@
 
 (function(funcName, baseObj) {
     // The public function name defaults to window.docReady
-    // but you can pass in your own object and own function name and those will be used
-    // if you want to put them in a different namespace
+    // If you want to put them in a different namespace,
+    // you can pass in your own object and own function name and those will be used
     funcName = funcName || "docReady";
     baseObj = baseObj || window;
     var readyList = [];
@@ -78,12 +78,8 @@
 
 (function() {
 
-    var parseMen = function() {
+    var parseDocument = function() {
         var tree = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-        parseTree(tree);
-    };
-
-    var parseTree = function(tree) {
         function replaceCallback(match) {
             return {
                 name: 'img',
@@ -156,6 +152,6 @@
 
 
     window.onDocReady(function() {
-        parseMen();
+        parseDocument();
     });
 })();
