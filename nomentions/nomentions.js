@@ -88,9 +88,9 @@
             return {
                 name: 'img',
                 attrs: {
-                    // "src": "http://icons.iconarchive.com/icons/icojam/blue-bits/24/picture-delete-icon.png",
-                    "src": browser.extension.getURL("images/nomentions_48.png"),
-                    "alt": match[0],
+                    "src": browser.extension.getURL("images/nomentions-button-48.png"),
+                    "alt": match,
+                    "title": match,
                     "style": "vertical-align:middle;"
                     // "style": "vertical-align:text-bottom;"
                 }
@@ -104,8 +104,8 @@
                 continue;
             }
 
-            // /\b(\w*(men|man|boy)\w*)\b/ig
-            textNodeReplace(node, /(men|man|boy)/ig, replaceCallback);
+            // /\b(\w*(...)\w*)\b/ig
+            textNodeReplace(node, /(m[ae]n|boy|uncle|father|son)/ig, replaceCallback);
         }
     };
 
